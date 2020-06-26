@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Virtual electrical engineering laboratories"/>
+		<meta name="keywords" content="virtual lab, web-based lab, electrical engineering, high voltage"/>
+		<meta name="author" content="Fatih Pehlevan" />
+		<title>Virtual Laboratories | ICG - Theory</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="shortcut icon" type="image/png" href="img/impulse.png">
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div id="branding">
+					<a id="hhh" href="index.html">
+						<h1><span class="highlight">Virtual</span> Laboratories</h1>
+						</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="current"><a href="labs.html">Labs</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact_us.html">Contact Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="container" style="text-align: center;">
+			<button style="float: left;"  class="button_start" onclick="go_to_pro()">Procedure & Objective</button>
+			<a style="text-decoration: none;float: right;" href="impulsecurrent.html"><button class="button_start">Simulator</button></a>
+		</div>
+
+
+
+        <section id="icg_theory">
+            <div class="container">
+                <h3 style="text-align:center">IMPULSE CURRENT GENERATORS</h3>
+                <p>
+					To be able to simulate the stressing of power apparatus in the power network, tests with impulse currents are performed. Lightning strokes or short circuits may cause impulse currents in the system. Waveform of an impulse current can be very different such as exponential waveform or rectengular waveform. This simulation analyzes the exponential impulse currents, therefore we will be discussing about them. <br>
+					Exponential impulse currents rises fast to its peak value and decreases slowly to zero, but not always as it depends on the circuit parameters. It is possible that the impulse current crossing the zero line.
+                </p>
+                <img style="width: 50%;" class="center" src="./img/impulse_current_wave.jpg" alt="waveform">
+                <p>
+                    According to IEC62475 standard, this is a standard exponential impulse current with its time parameters depicted. An exponential impulse current has 3 main characteristics:
+                    <ul>Peak value</ul>
+                    <ul>Front time and</ul> 
+                    <ul>Tail time or time to half value.</ul><br>
+					Calculations for the time parameters are very similar to the impulse voltage methods. One of the most common exponential impulse current is 8/20 which means 8 µs front time and 20 µs tail time. Tolerances for an 8/20 impulse currents are 10% for the peak value and 20% for the time parameters. Also, reversal peak should not be more than 30% of the peak value, otherwise, test object can be damaged because of the opposite polarity. 
+                </p>
+                <p>
+                    To be able to generate an exponential impulse current, capacitors are used. This is the circuit structure for creating exponential impulse currents:  <br>
+				</p>
+				<img style="width: 50%;" class= "center" src="./img/impulse-current-circuit.jpg" alt="one-stage impulse voltage generators">
+				<p>
+					Basically C capacitor is charged with direct current and discharged on to P test object over R and L with the help of FS sphere. R, L, C, R<sub>m</sub> which is the resistor of measuring system and the impedence of the test object shape the waveform. To obtain a waveform that suits to the test that will be conducted, appropriate values of circuit parameters should be selected.
+				</p>
+				<p>
+					Using Kirchhoff's Laws for voltage and current we have:
+					<div style="text-align: center;">
+						u<sub>c</sub> = u<sub>L</sub> + u<sub>R</sub> <br>
+						U<sub>0</sub> - 1/C ∫ idt = L di/dt + Ri.
+						<br><br>
+					</div>
+					Exponential impulse current function in time domain can be obtained with solving these equations in s domain and taking inverse laplace transform. This process will be done by the program that enables us to focus on the end results where the differences can be seen with changing circuit parameters.
+				</p>
+				<p>
+					Constructions of impulse current generators vary from compact table-top models with peak values of a few 10 kA to modular models where capacitors are connected in parallel with peak value of 200 kA or more. Modular setups can be arranged in a partially or totally circular arraganment. An example of a modular arraganment is shown below. 
+				</p>
+				<img style="width: 50%;" class="center"src="./img/modular_form_example.jpg" alt="">
+				<br>
+
+				<h3 id="pro_and_obj" style="text-align: center;">Procedure & Objective</h3>
+				<h4>Procedure</h4>
+				<P>
+					The simulator interface consists of a rough 3-D model of a modular arraganment of an exponential impulse current generator. It is possible to rotate, pan, zoom-in and zoom-out with mouse buttons on the 3-D model. <br>
+					First, user determines the circuit parameters using ranges or textboxes. "Start the Experiment" button will lock the ranges and enable the "Charge Capacitors" button which will activate a progress bar to kind of imitate the slow charging of capacitors. When capacitors are charged, "Trigger Generator" button will be activated and it makes it possible to move the sphere and discharging of the capacitors at once. Lastly, according to given circuit parameters, program will print out the exponential impulse current waveform with the parameter values on top of it. The graph can be downloaded as an image, which allows users to conduct several experiments with the system and compare the end results. 
+				</P>
+				<h4>Objective</h4>
+				<p>	
+					The main objective with this experiment is to be able to comprehend the effects of the changing circuit parameters to the waveform of an exponential impulse current. This is not easy to do in real life certainly. It would require strict safety precautions, supervision of an attendant and, moreover, big scale high current laboratories are very few in the world. The basic reason to build this system on a web site, is to make it accesible as much as possible in that matter. This system can be used by students who want to enhance their knowledge about the topic before the actual laboratory visit or who don't have an access to an actual lab but want to learn impulse currents more deeply with the help of some visual elements involved.
+				</p>
+				<button class="button_start" style="float: right;" onclick="go_to_top()">go to top</button>
+            </div>
+        </section>
+ 
+		<script>
+			function go_to_pro(){
+				document.querySelector("#pro_and_obj").scrollIntoView({behavior:"smooth"})
+			}
+			function go_to_top(){
+				window.scroll({top:0,left:0,behavior:"smooth"})
+			}
+		</script>
+		<footer>
+			<p>Virtual Laboratories, Copyright &copy; 2020</p>
+		</footer>
+	</body>
+</html>
