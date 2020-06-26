@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Virtual electrical engineering laboratories">
+  <meta name="keywords" content="virtual lab, web-based lab, electrical engineering, high voltage">
+  <meta name="author" content="Fatih Pehlevan">
+  <title>Virtual Laboratories | Contact Us</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="shortcut icon" type="image/png" href="img/impulse.png">
+</head>
+<body>
+<header>
+  <div class="container">
+    <div id="branding">
+      <a id="hhh" href="index.html">
+        <h1><span class="highlight">Virtual</span> Laboratories</h1>
+      </a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a> </li>
+        <li><a href="labs.html">Labs</a> </li>
+        <li><a href="about.html">About</a> </li>
+        <li class="current"><a href="contact_us.html">Contact Us</a> </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <div class="container">
+      <h2 >Send your message!</h2>
+      <form class="quote">
+        <div>
+          <label>Name</label><br>
+          <input type="text" placeholder="Name">
+        </div>
+        <div>
+          <label>Email</label><br>
+          <input type="email" placeholder="Email Adress">
+        </div>
+        <div>
+          <label>Message</label><br>
+          <textarea placeholder="Message"></textarea>
+        </div>
+        <button onclick="message();setTimeout(sendButton,1000)" class="button_1" type="button">Send</button>
+      </form>
+  </div>
+
+  <div id="msg" style="display: none;" class="container">
+    <p><h3>We got your message!</h3></p>
+  </div>
+
+  <script>
+    function message(){
+      x=document.getElementById("msg");
+      x.style.display = "block"
+    }
+    function sendButton(){
+      location.reload(true)
+    }
+  </script>
+
+<footer>
+  <p>Virtual Laboratories, Copyright &copy; 2020</p>
+</footer>
+
+</body>
+</html>
