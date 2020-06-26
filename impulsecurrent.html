@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="description"
+			content="Virtual electrical engineering laboratories"
+		/>
+		<meta
+			name="keywords"
+			content="virtual lab, web-based lab, electrical engineering, high voltage"
+		/>
+		<meta name="author" content="Fatih Pehlevan" />
+		<title>Virtual Laboratories | Homepage</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="shortcut icon" type="image/png" href="img/impulse.png">
+		<script src="https://unpkg.com/mathjs/dist/math.min.js"></script>
+		<script src="./plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <header>
+			<div class="container">
+				<div id="branding">
+					<a id="hhh" href="index.html">
+					<h1><span class="highlight">Virtual</span> Laboratories</h1>
+					</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="current"><a href="labs.html">Labs</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact_us.html">Contact Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="scene"></div>
+		<div class="parameters">
+			<div>
+				<form class="ranges">
+					<p><b>Charging Voltage</b></p>
+					<label for="v0_current"> V<sub>0</sub> in kV:</label>
+					<input id="v0_current" type="range" min="1" max="100" step="1" value="50" oninput="textbox1.value = v0_current.value" />
+					<input id="textbox1" type="number" min="1" max="100" step="1" value="50" oninput="v0_current.value = textbox1.value"/> 		
+				</form>
+			</div>
+			<div>
+				<form class="ranges">
+					<p><b>Capacitor Value</b></p>
+					<label for="c_current"> C in µF:</label>
+					<input id="c_current" type="range" min="0.1" max="60" step="0.1" value="50" oninput="textbox2.value = c_current.value" />
+					<input id="textbox2" type="number" min="0.1" max="60" step="0.1" value="50" oninput="c_current.value = textbox2.value"/> 
+					<br>			
+				</form>
+			</div>
+			<div>
+				<form class="ranges">
+					<p><b>Resistor Value</b></p>
+					<label for="rf_current"> R in Ω:</label>
+					<input id="rf_current" type="range" min="0.05" max="2" step="0.001" value="0.102" oninput="textbox4.value = rf_current.value" />
+					<input id="textbox4" type="number" min="0.05" max="2" step="0.001" value="0.102" oninput="rf_current.value = textbox4.value"/> 		
+					<!-- <br>
+					<label for="r1_current"> R<sub>P</sub> in Ω:</label>
+					<input id="r1_current" type="range" min="0.001" max="1" step="0.001" value="0.05" oninput="textbox5.value = r1_current.value" />
+					<input id="textbox5" type="number" min="0.001" max="1" step="0.001" value="0.05" oninput="r1_current.value = textbox5.value"/> 		 -->
+				</form>
+			</div>
+			<div>
+				<form class="ranges">
+					<p><b>Inductor Value</b></p>
+					<label for="lf_current"> L in µH:</label>
+					<input id="lf_current" type="range" min="0.0001" max="5" step="0.0001" value="1.235" oninput="textbox6.value = lf_current.value" />
+					<input id="textbox6" type="number" min="0.0001" max="5" step="0.0001" value="1.235" oninput="lf_current.value = textbox6.value"/> 		
+					<!-- <br>
+					<label for="l1_current"> L<sub>P</sub> in µH:</label>
+					<input id="l1_current" type="range" min="0.0001" max="2" step="0.0001" value="0.6175" oninput="textbox7.value = l1_current.value" />
+					<input id="textbox7" type="number" min="0.0001" max="2" step="0.0001" value="0.6175" oninput="l1_current.value = textbox7.value"/> 		 -->
+				</form>
+			</div>
+			<div>
+				<form class="ranges">
+					<p><b>Time Range</b></p>
+					<label for="time_current">Time range in µs:</label>
+					<input id="time_current" type="range" min="50" max="500" step="1" value="100" oninput="textbox9.value = time_current.value" />
+					<input id="textbox9" type="number" min="50" max="500" step="1" value="100" oninput="time_current.value = textbox9.value"/> 		
+				</form>
+			</div>
+			<div class="buttons">
+				<button id="startbtn" class="button_start" type="button" onclick="change_button_name();lockranges();enablecapacitor()">Start the Experiment</button>
+				<!--<button class="button" type="button" onclick="">Open Ground Switch</button>>-->
+				<button id="capacitor" class="button" type="button" onclick="progressbar();disablebutton2();setTimeout(enabletrig,3000)">Charge Capacitors</button>
+				<button id="trig" class="button" type="button" onclick="loop();setTimeout(lightning,200);playy();disablebutton();setTimeout(pauses,500);setTimeout(loop2,600);setTimeout(pauses2,1200);setTimeout(handle_click,300)">Trigger Generator</button>
+			</div>
+		</div>
+		<br>
+		<div id="containerr_current"></div>
+		<div id="flex_container_current">
+			<div id="imaxprint">...</div>
+			<div id="ifronttimeprint">...</div>
+			<div id="itailtimeprint">...</div>
+			<div id="itimetopeakprint">...</div>
+		</div>
+		
+		<div id="graph_current" style="width:1200px;height:500px;"></div>
+
+		<script src="impulse_current.js"></script>
+		<script src="./howler.min.js"></script>
+		<script src="./progressbar.min.js"></script>
+		<script src="./three.min.js"></script>
+		<script src="./OBJLoader.js"></script>
+		<script src="./GLTFLoader.js"></script>
+		<script src="./OrbitControls.js"></script>
+		<script src="./appcurrent.js"></script>
+        
+        <footer>
+			<p>Virtual Laboratories, Copyright &copy; 2020</p>
+		</footer>
+    </body>
+</html>

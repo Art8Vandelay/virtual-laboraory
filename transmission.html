@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="description"
+			content="Virtual electrical engineering laboratories"
+		/>
+		<meta
+			name="keywords"
+			content="virtual lab, web-based lab, electrical engineering, high voltage"
+		/>
+		<meta name="author" content="Fatih Pehlevan" />
+		<title>Virtual Laboratories | Homepage</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="shortcut icon" type="image/png" href="img/impulse.png">
+		<script src="https://unpkg.com/mathjs/dist/math.min.js"></script>
+		<script src="./plotly-latest.min.js"></script>
+    </head>
+    <body>
+        <header>
+			<div class="container">
+				<div id="branding">
+					<a id="hhh" href="index.html">
+					<h1><span class="highlight">Virtual</span> Laboratories</h1>
+					</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="current"><a href="labs.html">Labs</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact_us.html">Contact Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		
+		<div style="position: relative;">
+			<ul>
+
+				<li id="short_result">
+					<h4 style="margin-left: 40px">Short Line Model</h4>
+					<p style="display: inline; margin-left: 20px;"><b>I<sub>r</sub> =</b></p>
+					<h4 id="h4_1" style="margin: 0px;display: inline;">Ir</h4><br>
+					<p style="display: inline;margin-left: 20px;"><b>I<sub>s</sub> =</b></p>
+					<h4 id="h4_2" style="margin: 0px;display: inline;">Ir</h4><br>
+					<p style="display: inline;margin-left: 5px;"><b>V<sub>s <sub>L-N</sub></sub> =</b></p>
+					<h4 id="h4_3" style="margin: 0px;display: inline;">Ir</h4><br>
+					<p style="display: inline;margin-left: 20px;"><b>V<sub>s <sub>L-L</sub></sub> =</b></p>
+					<h4 id="h4_4" style="margin: 0px;display: inline;">Ir</h4><br>
+					<p style="display: inline;margin-left: 20px;"><b>S<sub>s</sub> =</b></p>
+					<h4 id="h4_5" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 20px;"><b>P<sub>s</sub> =</b></p>
+					<h4 id="h4_6" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 20px;"><b>Q<sub>s</sub> =</b></p>
+					<h4 id="h4_7" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 20px;"><b>VR =</b></p>
+					<h4 id="h4_22" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 20px;"><b>η =</b></p>
+					<h4 id="h4_23" style="margin: 0px;display: inline;"></h4><br>
+				</li>
+
+				<li id="medium_result">
+					<h4 style="margin-left: 30px">Medium Line Model</h4>
+					<p style="display: inline;margin-left: 30px;"><b>I<sub>r</sub> =</b></p>
+					<h4 id="h4_8" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 30px;"><b>I<sub>s</sub> =</b></p>
+					<h4 id="h4_9" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 10px;"><b>V<sub>s <sub>L-N</sub></sub> =</b></p>
+					<h4 id="h4_10" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 30px;"><b>V<sub>s <sub>L-L</sub></sub> =</b></p>
+					<h4 id="h4_11" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 30px;"><b>S<sub>s</sub> =</b></p>
+					<h4 id="h4_12" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 30px;"><b>P<sub>s</sub> =</b></p>
+					<h4 id="h4_13" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 30px;"><b>Q<sub>s</sub> =</b></p>
+					<h4 id="h4_14" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 30px;"><b>VR =</b></p>
+					<h4 id="h4_24" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 30px;"><b>η =</b></p>
+					<h4 id="h4_25" style="margin: 0px;display: inline;"></h4><br>
+				</li>
+
+				<li id="long_result">
+					<h4 style="margin-left: 40px">Long Line Model</h4>
+					<p style="display: inline; margin-left: 25px;"><b>I<sub>r</sub> =</b></p>
+					<h4 id="h4_15" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 25px;"><b>I<sub>s</sub> =</b></p>
+					<h4 id="h4_16" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 10px;"><b>V<sub>s <sub>L-N</sub></sub> =</b></p>
+					<h4 id="h4_17" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 25px;"><b>V<sub>s <sub>L-L</sub></sub> =</b></p>
+					<h4 id="h4_18" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 25px;"><b>S<sub>s</sub> =</b></p>
+					<h4 id="h4_19" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 25px;"><b>P<sub>s</sub> =</b></p>
+					<h4 id="h4_20" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 25px;"><b>Q<sub>s</sub> =</b></p>
+					<h4 id="h4_21" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 25px;"><b>VR =</b></p>
+					<h4 id="h4_26" style="margin: 0px;display: inline;"></h4><br>
+					<p style="display: inline;margin-left: 25px;"><b>η =</b></p>
+					<h4 id="h4_27" style="margin: 0px;display: inline;"></h4><br>
+				</li>
+			</ul>
+		</div>
+		<div class="parameters">
+			<div>
+				<form class="ranges">
+					<p><b>Frequency</b></p>
+					<label for="f"> f in Hz:</label>
+					<input id="f" type="range" min="10" max="120" step="10" value="60" oninput="textbox1.value = f.value" />
+					<input id="textbox1" type="number" min="10" max="120" step="10" value="60" oninput="f.value = textbox1.value"/> 		
+				</form>
+			</div>
+			<div>
+				<form class="ranges">
+					<p><b>Conductor Parameters</b></p>
+					<label for="r">R in Ω/km:</label>
+					<input id="r" type="range" min="0.0001" max="1" step="0.0001" value="0.125" oninput="textboxr.value = r.value" />
+                    <input id="textboxr" type="number" min="0.0001" max="1" step="0.0001" value="0.125" oninput="r.value = textbox2.value" /> 
+					<br>
+					<label for="l">L in mH/km:</label>
+					<input id="l" type="range" min="0.001" max="10" step="0.001" value="1.32" oninput="textboxl.value = l.value" />
+                    <input id="textboxl" type="number" min="0.001" max="10" step="0.001" value="1.32" oninput="l.value = textboxl.value"/> 
+					<br>		
+					<label for="c"> C in µF/km:</label>
+					<input id="c" type="range" min="0.0001" max="1" step="0.0001" value="0.0088" oninput="textboxc.value = c.value" />
+					<input id="textboxc" type="number" min="0.0001" max="1" step="0.0001" value="0.0088" oninput="c.value = textboxc.value"/>
+					<br>		
+					<label for="g"> G in S/km:</label>
+					<input id="g" type="range" min="1" max="10000" step="1" value="0" oninput="textbox3.value = y.value" />
+					<input id="textboxg" type="number" min="1" max="10000" step="1" value="0" oninput="y.value = textbox3.value"/>  		
+				</form>
+			</div>
+			<div>
+				<form class="ranges">
+					<p><b>Receiving End Values</b></p>
+					<label for="pr"> P<sub>r</sub> in MW:</label>
+					<input id="pr" type="range" min="1" max="1000" step="1" value="40" oninput="textbox4.value = pr.value" />
+					<input id="textbox4" type="number" min="1" max="1000" step="1" value="40" oninput="pr.value = textbox4.value"/> 		
+					<br>
+					<label for="vr"> V<sub>r</sub> in kV:</label>
+					<input id="vr" type="range" min="1" max="1000" step="1" value="220" oninput="textbox5.value = vr.value" />
+                    <input id="textbox5" type="number" min="1" max="1000" step="1" value="220" oninput="vr.value = textbox5.value"/>
+                    <br>
+					<label for="cosfi"> cosφ:</label>
+					<input id="cosfi" type="range" min="0.1" max="1" step="0.01" value="0.9" oninput="textbox7.value = cosfi.value" />
+					<input id="textbox7" type="number" min="0.1" max="1" step="0.01" value="0.9" oninput="cosfi.value = textbox7.value"/>  		
+				</form>
+			</div>
+			<div>
+				<form class="ranges">
+					<p><b>Line Length</b></p>
+					<label for="length">Line length in km:</label>
+					<input id="length" type="range" min="20" max="1000" step="1" value="280" oninput="textbox6.value = length.value" />
+					<input id="textbox6" type="number" min="20" max="1000" step="1" value="280" oninput="length.value = textbox6.value"/> 		
+				</form>
+			</div>
+			<div class="buttons">
+				<button id="startbtn" class="button_start" type="button" onclick="lockranges();change_button_name();enablecompare()">Start Experiment</button>
+				<button id="compare" class="button" type="button" onclick="enablegraphs();displaymodels();handleclick()">Compare Line Models</button>
+				<!--<button class="button" type="button" onclick="">Charge Capacitors</button>-->
+				<button id="graphs" class="button" type="button" onclick="newOne()">Plot the Graphs</button>
+			</div>
+		</div>
+
+		<p id="denemme"></p>
+		<p id="ddd"></p>
+		<div id="transmission_flex_container">
+			<div id="transmission_voltage_graph" style="width:600px;height:400px;"></div>
+			<div id="transmission_current_graph" style="width: 600px;height:400px;"></div>
+			<div id="transmission_Ss_graph" style="width: 600px;height:400px;"></div>
+			<div id="transmission_Qs_graph" style="width: 600px;height:400px;"></div>
+			<div id="transmission_Ps_graph" style="width: 600px;height:400px;"></div>
+		</div>
+		<br>
+        <script src="./transmission.js"></script>
+        
+        <footer>
+			<p>Virtual Laboratories, Copyright &copy; 2020</p>
+		</footer>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Virtual electrical engineering laboratories"/>
+		<meta name="keywords" content="virtual lab, web-based lab, electrical engineering, high voltage"/>
+		<meta name="author" content="Fatih Pehlevan" />
+		<title>Virtual Laboratories | IVG - Main</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="shortcut icon" type="image/png" href="img/impulse.png">
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div id="branding">
+					<a id="hhh" href="index.html">
+						<h1><span class="highlight">Virtual</span> Laboratories</h1>
+						</a>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="current"><a href="labs.html">Labs</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="contact_us.html">Contact Us</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<div class="container" style="text-align: center;">
+			<button style="float: left;"  class="button_start" onclick="go_to_pro()">Procedure & Objective</button>
+			<a style="text-decoration: none;float: right;" href="impulse.html"><button class="button_start">Simulator</button></a>
+		</div>
+
+
+
+        <section id="ivg_theory">
+            <div class="container">
+                <h3 style="text-align:center">IMPULSE VOLTAGE GENERATORS</h3>
+                <p>
+                    High voltage equipment could be exposed to transient overvoltages such as lightning impulse voltage or switching impulse voltage. It is important to test high voltage apparatus against those circumstances to prevent potential hazardous events and also to protect the high cost equipment. With these tests, we understand how to build a reliable system and an uninterrupted power supply. Let's start analyzing impulse voltages with the waveform of a full lightning impulse voltage.
+                </p>
+                <img class="center" src="./img/waveform.jpg" alt="waveform">
+                <p>
+                    According to IEC60060-1 standard, this is a standard lightning impulse voltage with its time parameters depicted. It is shown on the graph that the wave rises rapidly to a peak value, then decreases to zero much more slowly. An impulse voltage has 3 main characteristics:
+                    <ul>Peak value</ul>
+                    <ul>Front time and</ul> 
+                    <ul>Tail time or time to half value.</ul><br>
+                    It's often hard to determine the exact starting point because of the external effects to the measuring system, therefore a virtual origin point is selected where the line from point A to point B intersects the time axis. A and B points are selected as 0.3 * U<sub>max</sub> and 0.9 * U<sub>max</sub> respectively. Front time is the time between the virtual origin and the point where line from A to B intersects U<sub>max</sub> level. With using the notation on the graph, it is easily seen that T / 0.6 gives the front time value. Tail time is defined as the time from virtual point to the point where U equals to 0.5 * U<sub>max</sub>. Impulse voltages are often denoted as 1.2/50 µs which means 1.2 µs front time and 50 µs tail time. Front time must be smaller than 20 µs to be defined as a lightning impulse voltage. These time parameters are important to achieve to be able to simulate real world conditions.
+                </p>
+                <p>
+                    To be able to generate an impulse voltage with the given waveform, energy storing circuit elements should be used such as capacitors or inductors. These are the most commonly used one-stage impulse voltage generator circuits:<br>
+				</p>
+				<img style="width: 800px; "class= "center" src="./img/one_stage_2.jpg" alt="one-stage impulse voltage generators">
+				<p>
+					Basically, C<sub>1</sub> capacitor is charged with direct current and discharged with the help of FS sphere gap over R<sub>1</sub> and R<sub>2</sub> resistors which shape the waveform according to their values. R<sub>1</sub> is responsible for the front time and R<sub>2</sub> for the tail time. U(t) output voltage is obtained across the C<sub>2</sub> capacitor. To be able to understand the effects of the circuit elements to the waveshape, circuit equations can be solved in s domain with the help of laplace transform and then taking inverse laplace transform, the following equation can be obtained as the difference of two exponential functions:
+				</p>
+				<p style="text-align: center;">
+					U(t) = (U<sub>0</sub> / R<sub>1</sub> * C<sub>2</sub>) (α * β/ α - β) (e<sup>-t/α</sup> - e<sup>-t/β</sup>)
+				</p>
+				<p>
+					Time constants α and β are roots of a quadratic equation with the circuit elements and they change with the circuit structure. Circuit a and circuit b have different time constants, different efficiencies in that matter. <br>
+					Single stage impulse generators are used up to 300 kV. On the other hand, Marx generators can be constructed and generate up to 10 MV. A Marx generator circuit is as shown below:
+				</p>
+				<img class="center"src="./img/marx_2.jpg" alt="marx generator">
+                <p>
+					Marx generators consist of n identical stages. First, C'<sub>1</sub> capacitors are slowly charged with U'<sub>0</sub> in parallel, then with the help of spehere gaps they are suddenly connected in series. C<sub>2</sub> capacitor is charged through R'<sub>1</sub> resistors and discharged through R'<sub>1</sub> and R'<sub>2</sub> resistors. With this structure nU'<sub>0</sub> voltage level is achieved. The test object and the impulse voltage measuring system are connected in parallel to the load capacitor C<sub>2</sub>. In comparison to the single stage generator, we have:
+					<div style="text-align: center;">
+						<ul>R<sub>1</sub> = nR'<sub>1</sub></ul>
+						<ul>R<sub>2</sub> = nR'<sub>2</sub></ul>
+						<ul>C<sub>1</sub> = C'<sub>1</sub>/n</ul>
+						<ul>U<sub>0</sub> = nU'<sub>0</sub>. </ul>
+					</div>  
+				</p>
+				<p>
+					This is how enormous values of impulse voltages are achieved and paved the way of experiments with millions of voltages. 
+				</p>
+				<h3 id="pro_and_obj" style="text-align: center;">Procedure & Objective</h3>
+				<h4>Procedure</h4>
+				<P>
+					The simulator interface consists of a rough 3-D model of a 6 stage Marx generator, and six ranges as well as textboxes alongside them. It is possible to rotate, pan, zoom-in and zoom-out with mouse buttons on the 3-D model. <br> First, user determines the circuit parameters using ranges or textboxes. "Start the Experiment" button will lock the ranges and enable the "Charge Capacitors" button which will activate a progress bar to kind of imitate the slow charging of capacitors. When capacitors are charged, "Trigger Generator" button will be activated and it makes it possible to move spheres and connect capacitors in series. <br> Lastly, according to given circuit parameters, program will print out the impulse voltage waveform with the parameter values on top of it. The graph can be downloaded as an image, which allows users to conduct several experiments with the system and compare the end results.
+				</P>
+				<h4>Objective</h4>
+				<p>	
+					The main objective with this experiment is to be able to comprehend the effects of the changing parameter values to the waveform of an impulse voltage. This is not easy to do in real life certainly. It would require strict safety precautions, supervision of an attendant and, moreover, big scale high voltage laboratories are very few in the world. The basic reason to build this system on a web site, is to make it accesible as much as possible in that matter. This system can be used by students who want to enhance their knowledge about the topic before the actual laboratory visit or who don't have an access to an actual lab but want to learn impulse voltages more deeply with the help of some visual elements involved.
+				</p>
+				<button class="button_start" style="float: right;" onclick="go_to_top()">go to top</button>
+            </div>
+        </section>
+ 
+		<script>
+			function go_to_pro(){
+				document.querySelector("#pro_and_obj").scrollIntoView({behavior:"smooth"})
+			}
+			function go_to_top(){
+				window.scroll({top:0,left:0,behavior:"smooth"})
+			}
+		</script>
+		<footer>
+			<p>Virtual Laboratories, Copyright &copy; 2020</p>
+		</footer>
+	</body>
+</html>
